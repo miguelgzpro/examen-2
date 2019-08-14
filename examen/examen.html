@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Digitos</title>
+</head>
+<body>
+    <div id="principal">
+    Desde: <input type="number" name="primero" id="primero">
+    <br><br>
+    Hasta: <input type="number" name="segundo" id="segundo">
+    <br><br>
+    <input type="button" value="generar">
+    
+    <input type="button" value="dibujar">
+    <br><br>
+    <input type="button" value="iterador" id="reg_btn_iniciar">
+</div>
+<div id="cedula">
+Cedula: <input type="number" name="cedula" id="cedula">
+    <br><br>
+    <input type="button" value="procesar" id="multiplos_3">
+</div>
+</body>
+
+<form>
+    <table id="dibujar" border="1">
+<tbody>
+    
+</tbody>
+    </table>
+</form>
+<script>
+var divPrincipal = document.getElementById("principal");
+var divCedula = document.getElementById("cedula");
+divCedula.style.display = "none";
+
+
+document.getElementById("reg_btn_iniciar")
+    .addEventListener("click", function () {
+        //ocultar div de principal
+        divPrincipal.style.display = "none";
+
+        //mostrar div de cedula
+        divCedula.style.display = "block";
+
+    })
+// Arrays que contendran los valores multiples del 3
+    var multiplos_3=[];
+       // numero registrado
+        var i=1;i<=100;i++ 
+        function mostrar(multiplos_3) {
+            if(multiplos(i,3))
+                multiplos_3.push(i);  
+}
+
+
+document.getElementById("dibujar")
+
+var multiplos_3 = [];
+        function generartabla() {
+            var primero = parseInt(document.getElementById("primero").value);
+            var segundo = parseInt(document.getElementById("segundo").value);
+            
+            var a = primero;
+            var b = segundo;
+            multiplos_3.push(primero);
+            multiplos_3.push(segundo);
+            var resultado;
+            while (a + b) {
+                resultado = a + b;
+                a = b;
+                b = resultado;
+               
+            }
+            llenartablanumeros();
+        }
+
+        
+        function llenartablanumeros() {
+            var tablar = document.getElementById("dibujar");
+            tablar.innerHTML = "";
+            var tblBody = document.createElement("tbody");
+            var i = 0;
+            while (i < multiplos_3.length) {
+                var elemento = multiplos_3[i];
+                var hilera = document.createElement("tr");
+                var celda = document.createElement("td");
+                celda.id = "td" + elemento;
+                celda.id = "tr" + elemento;
+                var textoCelda = document.createTextNode(elemento);
+                celda.appendChild(textoCelda);
+                hilera.appendChild(celda);
+                tblBody.appendChild(hilera);
+                i++;
+            }
+        }
+                </script>
+</html>
